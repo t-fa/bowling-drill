@@ -1,0 +1,24 @@
+{
+  "name": "bowling-drill",
+  "version": "1.0.0",
+  "description": "A web app to store customer data for bowling ball drill sizes.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t-fa/bowling-drill.git"
+  },
+  "author": "Tom Fattah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/t-fa/bowling-drill/issues"
+  },
+  "homepage": "https://github.com/t-fa/bowling-drill#readme",
+  "dependencies": {
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.8"
+  }
+}
