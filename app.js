@@ -8,9 +8,9 @@ mongoose.set('useNewUrlParser',true);
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res){
-    res.redirect("index");
+    res.render("index");
 })
 
-app.listen(3000, process.env.IP, function(){
+app.listen(8080, process.env.IP, function(){
     console.log("Server is running");
 })
