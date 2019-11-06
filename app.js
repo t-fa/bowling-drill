@@ -5,6 +5,7 @@ var express = require("express"),
 mongoose.set('useNewUrlParser',true);
 // mongoose.connect("mongodb://localhost/bowling-drill");
 
+app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res){
