@@ -15,6 +15,16 @@ body {
     text-align: center;
 }
 
+.header-nav ul {
+    margin: 0 auto;
+}
+
+.header-nav li {
+    margin: 5px 15px;
+    list-style: none;
+    display: inline;
+}
+
 .login input {
     display: inline;
     width: 100%;
