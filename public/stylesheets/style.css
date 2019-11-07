@@ -7,6 +7,10 @@ body {
     margin: 0 auto;
 }
 
+.customerlookup input{
+    width: 100%;
+}
+
 .fingersize input{
     width: 100%;
 }
