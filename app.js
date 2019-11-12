@@ -24,14 +24,15 @@ app.get("/drillings", function(req, res){
     res.render("drillings");
 })
 
-// BELOW ROUTES NOT YET IMPLEMENTED
 // NEW
 app.get("/drillings/new", function(req, res){
     res.render("new");
 })
 
 // CREATE
-// app.post()
+// app.post("/drillings/", function(req, res){
+
+// })
 
 // SHOW
 // app.get("/drillings/:id")
