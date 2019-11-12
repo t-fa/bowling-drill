@@ -1,5 +1,7 @@
 <% include partials/header %>
 
+This is for the pro shop side to be able to look up a customer.
+An individual user would have a different interface.
 <div class="customerlookup">
     <form>
         <h2>Customer Lookup</h2>
@@ -17,9 +19,62 @@
 </div>
 
 <div class="fingersize">
-    <h2>Sizes for username</h2>
-    <h3>Fingers: </h3>
-    <h4>Left Finger</h4>
+  <table>
+    <caption>Sizes for :username:</caption>
+    <thead>
+      <tr>
+        <th>Left Finger</th>
+        <th>Right Finger</th>
+        <th>Thumb Finger</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Slug</td>
+        <td></td>
+        <td></td>
+        <td>:userslug:</td>
+      </tr>
+      <tr>
+        <td>Grips</td>
+        <td>:usergrip:</td>
+        <td>:usergrip:</td>
+        <td>:usergrip:</td>
+      </tr>
+      <tr>
+        <td>Hole Size</td>
+        <td>:userhs</td>
+        <td>:userhs</td>
+        <td>:userhs</td>
+      </tr>
+      <tr>
+        <td>Pitch F/R</td>
+        <td>:userpitchfr:</td>
+        <td>:userpitchfr:</td>
+        <td>:userpitchfr:</td>
+      </tr>
+      <tr>
+        <td>Pitch L/R</td>
+        <td>:userpitchlr:</td>
+        <td>:userpitchlr:</td>
+        <td>:userpitchlr:</td>
+        <td>:userpitchlr:</td>
+      </tr>
+      <tr>
+        <td>Oval Size</td>
+        <td>:useroval:</td>
+        <td>:useroval:</td>
+        <td>:useroval:</td>
+      </tr>
+      <tr>
+        <td>Mach Set</td>
+        <td>:usermach</td>
+        <td>:usermach</td>
+        <td>:usermach</td>
+      </tr>
+    </tbody>
+  </table>
+    <!-- <h4>Left Finger</h4>
     <ul>
         <li id="lgrip">Grips</li>
         <li id="lhol">Hole Size</li>
@@ -48,5 +103,5 @@
         <li id="tpitchlr">Pitch L/R</li>
         <li id="toval">Oval Size</li>
         <li id="tmach">Mach Set</li>
-    </ul>
+    </ul> -->
 </div>
