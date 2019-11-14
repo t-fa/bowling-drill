@@ -14,25 +14,52 @@ app.set("view engine", "ejs");
 //     left
 // })
 
+User.create(
+	{
+		firstname: "Billy Bob,",
+		lastname: "Thornton",
+		email: "bbthorn@gmail.com"
+	}, function(err, user){
+		if(err){
+			console.log(err);
+		} else {
+			console.log("Newly created user: ");
+			console.log(campground);
+		}
+});
+
 // ROUTES
 app.get("/", function(req, res){
     res.render("index");
-})
+});
 
 // INDEX
 app.get("/drillings", function(req, res){
     res.render("drillings");
-})
+});
 
 // NEW
 app.get("/drillings/new", function(req, res){
     res.render("new");
-})
+});
 
 // CREATE
-// app.post("/drillings/", function(req, res){
+app.post("/drillings/", function(req, res){
+    var first = req.sanitize(req.body.firstname);
+    var last = req.sanitize(req.body.lastname);
+    var email = req.sanitize(req.body.email);
+    var newUser = {firstname: firstname, lastname: lastname, email: email};
+    User.create(newUser, function(err, newlyCreated){
+        if(err){
+            console.log(err);
+            
+        } else {
+            console.log("New user: " + newlyCreated);
+            res.redirect("/drillings");
+        }
+    })
+)};
 
-// })
 
 // SHOW
 // app.get("/drillings/:id")
