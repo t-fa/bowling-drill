@@ -11,10 +11,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
-// var drillSchema = new mongoose.Schema({
-//     left
-// })
-
 var bob = new User({
     firstname: "Billy Bob",
 	lastname: "Thornton",
@@ -47,7 +43,7 @@ app.get("/drillings", function(req, res){
 
 // NEW
 app.get("/drillings/new", function(req, res){
-    res.render("new");
+    res.render("drillings/new");
 });
 
 // CREATE
