@@ -1,8 +1,9 @@
 var express = require("express"),
               app = express(),
               bodyParser = require("body-parser"),
-              mongoose = require("mongoose");
-              User = require("./models/user")
+              mongoose = require("mongoose"),
+              Drill = require("./models/drill"),
+              User = require("./models/user");
 
 mongoose.set('useNewUrlParser',true);
 mongoose.connect("mongodb://localhost/bowling-drill", { useUnifiedTopology: true });
