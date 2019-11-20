@@ -15,19 +15,19 @@ app.set("view engine", "ejs");
 //     left
 // })
 
-// User.create(
-// 	{
-// 		firstname: "Billy Bob,",
-// 		lastname: "Thornton",
-// 		email: "bbthorn@gmail.com"
-// 	}, function(err, user){
-// 		if(err){
-// 			console.log(err);
-// 		} else {
-// 			console.log("Newly created user: ");
-// 			console.log(campground);
-// 		}
-// });
+var bob = new User({
+    firstname: "Billy Bob",
+	lastname: "Thornton",
+	email: "bbthorn@gmail.com"
+})
+
+// bob.save(function(err, user){
+//     if(err){
+//         console.log("Something went wrong: " + err);
+//     } else {
+//         console.log(user);
+//     }
+// })
 
 // ROUTES
 app.get("/", function(req, res){
@@ -36,7 +36,13 @@ app.get("/", function(req, res){
 
 // INDEX
 app.get("/drillings", function(req, res){
-    res.render("drillings");
+    User.find({}, function(err, allUsers){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("drillings/index", {users: allUsers});
+        }
+    })
 });
 
 // NEW
@@ -63,7 +69,9 @@ app.get("/drillings/new", function(req, res){
 
 
 // SHOW
-// app.get("/drillings/:id")
+// app.get("/drillings/:id", function()){
+
+// }
 
 // EDIT
 // app.get("/drillings/:id/edt")

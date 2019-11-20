@@ -20,6 +20,15 @@ An individual user would have a different interface.
 
 <a href="/new">Create a New User</a>
 
+<% users.forEach(function(user){ %>
+  <div>
+    <h2>Users in DB:</h2>
+    <ul>
+      <li><%= user["firstname"] %></li>
+    </ul>
+  </div>
+<% }); %>
+
 <div class="fingersize">
   <table>
     <caption>Sizes for :username:</caption>
