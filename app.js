@@ -5,8 +5,9 @@ var express = require("express"),
               User = require("./models/user")
 
 mongoose.set('useNewUrlParser',true);
-mongoose.connect("mongodb://localhost/bowling-drill");
+mongoose.connect("mongodb://localhost/bowling-drill", { useUnifiedTopology: true });
 
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
@@ -14,19 +15,19 @@ app.set("view engine", "ejs");
 //     left
 // })
 
-User.create(
-	{
-		firstname: "Billy Bob,",
-		lastname: "Thornton",
-		email: "bbthorn@gmail.com"
-	}, function(err, user){
-		if(err){
-			console.log(err);
-		} else {
-			console.log("Newly created user: ");
-			console.log(campground);
-		}
-});
+// User.create(
+// 	{
+// 		firstname: "Billy Bob,",
+// 		lastname: "Thornton",
+// 		email: "bbthorn@gmail.com"
+// 	}, function(err, user){
+// 		if(err){
+// 			console.log(err);
+// 		} else {
+// 			console.log("Newly created user: ");
+// 			console.log(campground);
+// 		}
+// });
 
 // ROUTES
 app.get("/", function(req, res){
@@ -44,21 +45,21 @@ app.get("/drillings/new", function(req, res){
 });
 
 // CREATE
-app.post("/drillings/", function(req, res){
-    var first = req.sanitize(req.body.firstname);
-    var last = req.sanitize(req.body.lastname);
-    var email = req.sanitize(req.body.email);
-    var newUser = {firstname: firstname, lastname: lastname, email: email};
-    User.create(newUser, function(err, newlyCreated){
-        if(err){
-            console.log(err);
-            
-        } else {
-            console.log("New user: " + newlyCreated);
-            res.redirect("/drillings");
-        }
-    })
-)};
+// app.post("/drillings/", function(req, res){
+//     var first = req.body.firstname;
+//     var last = req.body.lastname;
+//     var email = req.body.email;
+//     var newUser = {firstname: firstname, lastname: lastname, email: email};
+//     User.create(newUser, function(err, newlyCreated){
+//         if(err){
+//             console.log(err);
+//         } else {
+//             console.log("New user: ");
+//             console.log(newlyCreated);
+//             res.redirect("/drillings");
+//         }
+//     });
+// )};
 
 
 // SHOW
