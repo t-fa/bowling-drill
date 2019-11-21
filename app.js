@@ -12,11 +12,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
-var bob = new User({
-    firstname: "Billy Bob",
-	lastname: "Thornton",
-	email: "bbthorn@gmail.com"
-})
+// var bob = new User({
+//     firstname: "Billy Bob",
+// 	lastname: "Thornton",
+//     email: "bbthorn@gmail.com"
+//     drill:
+// })
 
 // bob.save(function(err, user){
 //     if(err){
@@ -48,21 +49,21 @@ app.get("/drillings/new", function(req, res){
 });
 
 // CREATE
-// app.post("/drillings/", function(req, res){
-//     var first = req.body.firstname;
-//     var last = req.body.lastname;
-//     var email = req.body.email;
-//     var newUser = {firstname: firstname, lastname: lastname, email: email};
-//     User.create(newUser, function(err, newlyCreated){
-//         if(err){
-//             console.log(err);
-//         } else {
-//             console.log("New user: ");
-//             console.log(newlyCreated);
-//             res.redirect("/drillings");
-//         }
-//     });
-// )};
+app.post("/drillings", function(req, res){
+    var first = req.body.firstname;
+    var last = req.body.lastname;
+    var email = req.body.email;
+    var newUser = {firstname: firstname, lastname: lastname, email: email};
+    User.create(newUser, function(err, newlyCreated){
+        if(err){
+            console.log(err);
+        } else {
+            console.log("New user: ");
+            console.log(newlyCreated);
+            res.redirect("/drillings");
+        }
+    })
+});
 
 
 // SHOW
