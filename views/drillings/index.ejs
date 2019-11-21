@@ -37,9 +37,9 @@ An individual user would have a different interface.
       <tbody>
           <% users.forEach(function(user){ %>
           <tr>
-            <td><a href="/drillings/<%= user._id %>"><%= user["firstname"] %></a></td>
-            <td><a href="/drillings/<%= user._id %>"><%= user["lastname"] %></a></td>
-            <td><a href="/drillings/<%= user._id %>"><%= user["email"] %></a></td>
+            <td><a href="/drillings/<%= user._id %>"><%= user.firstname %></a></td>
+            <td><a href="/drillings/<%= user._id %>"><%= user.lastname %></a></td>
+            <td><a href="/drillings/<%= user._id %>"><%= user.email %></a></td>
             <% }); %>
           </tr>
       </tbody>
@@ -102,35 +102,4 @@ An individual user would have a different interface.
       </tr>
     </tbody>
   </table> -->
-
-    <!-- <h4>Left Finger</h4>
-    <ul>
-        <li id="lgrip">Grips</li>
-        <li id="lhol">Hole Size</li>
-        <li id="lpitchfr">Pitch F/R</li>
-        <li id="lpitchlr">Pitch L/R</li>
-        <li id="loval">Oval Size</li>
-        <li id="lmach">Mach Set</li>
-    </ul>
-
-    <h4>Right Finger</h4>
-    <ul>
-        <li id="rgrip">Grips</li>
-        <li id="rhol">Hole Size</li>
-        <li id="rpitchfr">Pitch F/R</li>
-        <li id="rpitchlr">Pitch L/R</li>
-        <li id="roval">Oval Size</li>
-        <li id="rmach">Mach Set</li>
-    </ul>
-
-    <h4>Thumb</h4>
-    <ul>
-        <li id="tslug">Slug</li>
-        <li id="tgrip">Grips</li>
-        <li id="thol">Hole Size</li>
-        <li id="tpitchfr">Pitch F/R</li>
-        <li id="tpitchlr">Pitch L/R</li>
-        <li id="toval">Oval Size</li>
-        <li id="tmach">Mach Set</li>
-    </ul> -->
 </div>

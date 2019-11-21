@@ -67,9 +67,16 @@ app.post("/drillings", function(req, res){
 
 
 // SHOW
-// app.get("/drillings/:id", function()){
-
-// }
+app.get("/drillings/:id", function(req, res){
+    var id = req.params.id;
+    User.findById(id, function(err, foundUser){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("drillings/show", {user: foundUser});
+        }
+    });
+});
 
 // EDIT
 // app.get("/drillings/:id/edt")
