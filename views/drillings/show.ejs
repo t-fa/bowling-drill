@@ -1,8 +1,11 @@
 <% include ../partials/header %>
 
-    <h2>Finger Sizes For <%= user["firstname"] + " " + user["lastname"] %></h2>
-    <a href="edit">Edit Finger Size</a>
+    <h2>Finger Sizes For <%= user.firstname + " " + user.lastname %></h2>
+    <a href="<%= user._id %>/edit">Edit Finger Size</a>
 
+    <% user.drill.forEach(function(finger){ %>
+        <%= finger.left.grip %>
+    <% }); %>
     <h4>Left Finger</h4>
     <ul>
         <li id="lgrip">Grips</li>

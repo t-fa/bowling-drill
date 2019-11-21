@@ -12,21 +12,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
-// var bob = new User({
-//     firstname: "Billy Bob",
-// 	lastname: "Thornton",
-//     email: "bbthorn@gmail.com"
-//     drill:
-// })
-
-// bob.save(function(err, user){
-//     if(err){
-//         console.log("Something went wrong: " + err);
-//     } else {
-//         console.log(user);
-//     }
-// })
-
 // ROUTES
 app.get("/", function(req, res){
     res.render("index");
@@ -79,7 +64,16 @@ app.get("/drillings/:id", function(req, res){
 });
 
 // EDIT
-// app.get("/drillings/:id/edt")
+app.get("/drillings/:id/edit", function(req, res){
+    var id = req.params.id;
+    User.findById(id, function(err, foundUser){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("drillings/edit", {user: foundUser});
+        }
+    });
+});
 
 // UPDATE
 // app.put("/drillings/:id")
