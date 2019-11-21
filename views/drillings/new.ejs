@@ -1,74 +1,93 @@
 <% include ../partials/header %>
 
-            <h2>Add new drill sizes for username</h2>
-            <div class="fingersize">
+            <div class="customerlookup">
+              <h2>Add a new customer</h2>
+              <form action="/drillings" method="POST">
+                  <h2>Customer Lookup</h2>
+                  <label for="fname">First Name
+                      <input type="text" name="firstname" placeholder="First Name" required>
+                  </label>
+                  <label for="fname">Last Name
+                      <input type="text" name="lastname" placeholder="Last Name" required>
+                  </label>
+                  <label for="fname">Email
+                      <input type="email" name="email" placeholder="Email" required>
+                  </label>
+                  <input type="submit">
+              </form>
+            </div>
+
+            <!-- <div class="fingersize">
                 <form>
                   <h2>Fingers:</h2>
                   <h3>Left finger</h3>
                   <label for="lgrip">Grips
-                    <input type="text">
+                    <input name="lgrip" type="text" required>
                   </label>
                   <label for="lhol">Hole Size
-                    <input type="text">
+                    <input name="lhol" type="text" required>
                   </label>
                   <label for="lpitchfr">Pitch F/R
-                    <input type="text">
+                    <input name="lpitchfr" type="text" required>
                   </label>
                   <label for="lpitchlr">Pitch L/R
-                    <input type="text">
+                    <input name="lpitchlr" type="text" required>
                   </label>
                   <label for="loval">Oval Size
-                    <input type="text">
+                    <input name="loval" type="text" required>
                   </label>
                   <label for="lmach">Mach Set
-                    <input type="text">
+                    <input name="lmach" type="text" required>
                   </label>
+                  <input type="submit">
                 </form>
             
                 <form>
                   <h3>Right finger</h3>
                   <label for="rgrip">Grips
-                    <input type="text">
+                    <input name="rgrip" type="text" required>
                   </label>
                   <label for="rhol">Hole Size
-                    <input type="text">
+                    <input name="rhol" type="text" required>
                   </label>
                   <label for="rpitchfr">Pitch F/R
-                    <input type="text">
+                    <input name="rpitchfr" type="text" required>
                   </label>
                   <label for="rpitchlr">Pitch L/R
-                    <input type="text">
+                    <input name="rpitchlr" type="text" required>
                   </label>
                   <label for="roval">Oval Size
-                    <input type="text">
+                    <input name="roval" type="text" required>
                   </label>
                   <label for="rmach">Mach Set
-                    <input type="text">
+                    <input name="rmach" type="text" required>
                   </label>
+                  <input type="submit">
                 </form>
                 
                 <form>
                   <h3>Thumb</h3>
                   <label for="tslug">Slug
-                    <input type="text">
+                    <input name="tslug" type="text" required>
                   </label>
                   <label for="tgrip">Grips
-                    <input type="text">
+                    <input name="tgrip" type="text" required>
                   </label>
                   <label for="thol">Hole Size
-                    <input type="text">
+                    <input name="thol" type="text" required>
                   </label>
                   <label for="tpitchfr">Pitch F/R
-                    <input type="text">
+                    <input name="tpitchfr" type="text" required>
                   </label>
                   <label for="tpitchlr">Pitch L/R
-                    <input type="text">
+                    <input name="tpitchlr" type="text" required>
                   </label>
                   <label for="toval">Oval Size
-                    <input type="text">
+                    <input name="toval" type="text" required>
                   </label>
                   <label for="tmach">Mach Set
-                    <input type="text">
+                    <input name="tmach" type="text" required>
                   </label>
+                  <input type="submit">
                 </form> 
-            </div>
+            </div> -->

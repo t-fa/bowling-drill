@@ -2,6 +2,11 @@
 
 This is for the pro shop side to be able to look up a customer.
 An individual user would have a different interface.
+
+<div>
+  <a href="/drillings/new">Create a New User</a>
+</div>
+
 <div class="customerlookup">
     <form>
         <h2>Customer Lookup</h2>
@@ -18,18 +23,30 @@ An individual user would have a different interface.
     </form>
 </div>
 
-<a href="/new">Create a New User</a>
 
-<% users.forEach(function(user){ %>
   <div>
-    <h2>Users in DB:</h2>
-    <ul>
-      <li><%= user["firstname"] %></li>
-    </ul>
+    <table>
+      <caption>Users in database</caption>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% users.forEach(function(user){ %>
+          <tr>
+            <td><a href="/drillings/<%= user._id %>"><%= user["firstname"] %></a></td>
+            <td><a href="/drillings/<%= user._id %>"><%= user["lastname"] %></a></td>
+            <td><a href="/drillings/<%= user._id %>"><%= user["email"] %></a></td>
+            <% }); %>
+          </tr>
+      </tbody>
+    </table>
   </div>
-<% }); %>
 
-<div class="fingersize">
+<!-- <div class="fingersize">
   <table>
     <caption>Sizes for :username:</caption>
     <thead>
@@ -48,7 +65,7 @@ An individual user would have a different interface.
         <td>:userslug:</td>
       </tr>
       <tr>
-        <td>Grips</td>
+        <td>Grip</td>
         <td>:usergrip:</td>
         <td>:usergrip:</td>
         <td>:usergrip:</td>
@@ -84,7 +101,8 @@ An individual user would have a different interface.
         <td>:usermach</td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
+
     <!-- <h4>Left Finger</h4>
     <ul>
         <li id="lgrip">Grips</li>

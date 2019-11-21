@@ -50,8 +50,8 @@ app.get("/drillings/new", function(req, res){
 
 // CREATE
 app.post("/drillings", function(req, res){
-    var first = req.body.firstname;
-    var last = req.body.lastname;
+    var firstname = req.body.firstname;
+    var lastname = req.body.lastname;
     var email = req.body.email;
     var newUser = {firstname: firstname, lastname: lastname, email: email};
     User.create(newUser, function(err, newlyCreated){
