@@ -40,6 +40,11 @@ An individual user would have a different interface.
             <td><a href="/drillings/<%= user._id %>"><%= user.firstname %></a></td>
             <td><a href="/drillings/<%= user._id %>"><%= user.lastname %></a></td>
             <td><a href="/drillings/<%= user._id %>"><%= user.email %></a></td>
+            <td>
+              <form action="/drillings/<%= user._id %>?_method=DELETE" method="POST">
+                <button>Delete</button>
+              </form>
+            </td>
             <% }); %>
           </tr>
       </tbody>

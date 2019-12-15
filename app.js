@@ -20,10 +20,10 @@ TO DO:
 -User log ins
 -Separate drill model from user model
 -Make form a better use experience - probably 1 finger per page
--Edit and delete
+-Delete
 -UI improvements
 -Sanitize user input
--Route error handling
+-Better route error handling (404 page, etc)
 */
 
 // ROUTES
@@ -202,7 +202,16 @@ app.put("/drillings/:id", function(req, res){
 })
 
 // DELETE
-// app.delete("/drillings/:id")
+app.delete("/drillings/:id", function(req, res){
+    User.findByIdAndRemove(req.params.id, function(err){
+		if(err){
+			console.log(err);
+			res.redirect("/drillings");
+		} else {
+			res.redirect("/drillings");
+		}
+	});
+})
 
 app.listen(8080, process.env.IP, function(){
     console.log("Server is running");
