@@ -3,36 +3,34 @@
     <h2>Finger Sizes For <%= user.firstname + " " + user.lastname %></h2>
     <a href="<%= user._id %>/edit">Edit Finger Size</a>
 
-    <% user.drill.forEach(function(finger){ %>
-        <%= finger.left.grip %>
-    <% }); %>
+    
     <h4>Left Finger</h4>
     <ul>
-        <li id="lgrip">Grips</li>
-        <li id="lhol">Hole Size</li>
-        <li id="lpitchfr">Pitch F/R</li>
-        <li id="lpitchlr">Pitch L/R</li>
-        <li id="loval">Oval Size</li>
-        <li id="lmach">Mach Set</li>
+        <li id="lgrip">Grips <%= user.left.grip %></li>
+        <li id="lhol">Hole Size <%= user.left.holesize %></li>
+        <li id="lpitchfr">Pitch F/R <%= user.left.pitchfr %></li>
+        <li id="lpitchlr">Pitch L/R <%= user.left.pitchlr %></li>
+        <li id="loval">Oval Size <%= user.left.oval %></li>
+        <li id="lmach">Mach Set <%= user.left.grip %></li>
     </ul>
 
     <h4>Right Finger</h4>
     <ul>
-        <li id="rgrip">Grips</li>
-        <li id="rhol">Hole Size</li>
-        <li id="rpitchfr">Pitch F/R</li>
-        <li id="rpitchlr">Pitch L/R</li>
-        <li id="roval">Oval Size</li>
-        <li id="rmach">Mach Set</li>
+        <li id="rgrip">Grips <%= user.right.grip %></li>
+        <li id="rhol">Hole Size <%= user.right.holesize %></li>
+        <li id="rpitchfr">Pitch F/R <%= user.right.pitchfr %></li>
+        <li id="rpitchlr">Pitch L/R <%= user.right.pitchlr %></li>
+        <li id="roval">Oval Size <%= user.right.oval %></li>
+        <li id="rmach">Mach Set <%= user.right.mach %></li>
     </ul>
 
     <h4>Thumb</h4>
     <ul>
-        <li id="tslug">Slug</li>
-        <li id="tgrip">Grips</li>
-        <li id="thol">Hole Size</li>
-        <li id="tpitchfr">Pitch F/R</li>
-        <li id="tpitchlr">Pitch L/R</li>
-        <li id="toval">Oval Size</li>
-        <li id="tmach">Mach Set</li>
+        <li id="tslug">Slug <%= user.thumb.slug %></li>
+        <li id="tgrip">Grips <%= user.thumb.grip %></li>
+        <li id="thol">Hole Size <%= user.thumb.holesize %></li>
+        <li id="tpitchfr">Pitch F/R <%= user.thumb.pitchfr %></li>
+        <li id="tpitchlr">Pitch L/R <%= user.thumb.pitchlr %></li>
+        <li id="toval">Oval Size <%= user.thumb.oval %></li>
+        <li id="tmach">Mach Set <%= user.thumb.mach %></li>
     </ul>
