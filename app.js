@@ -7,6 +7,7 @@ var express = require("express"),
               User = require("./models/user");
 
 mongoose.set('useNewUrlParser',true);
+mongoose.set('useFindAndModify', false);
 mongoose.connect("mongodb://localhost/bowling-drill", { useUnifiedTopology: true });
 
 app.use(bodyParser.urlencoded({extended: true}));
