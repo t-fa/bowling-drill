@@ -5,7 +5,7 @@ var userSchema = new mongoose.Schema({
     lastname: String,
     email: String,
     date: {type: Date, default: Date.now()},
-    right: {
+    left: {
         grip: Number,
         holesize: Number,
         pitchfr: Number,
@@ -13,7 +13,7 @@ var userSchema = new mongoose.Schema({
         oval: Number,
         mach: Number
     },
-    left: {
+    right: {
         grip: Number,
         holesize: Number,
         pitchfr: Number,
