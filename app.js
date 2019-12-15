@@ -2,7 +2,7 @@ var express = require("express"),
               app = express(),
               bodyParser = require("body-parser"),
               mongoose = require("mongoose"),
-              Drill = require("./models/drill"),
+            //   Drill = require("./models/drill"),
               User = require("./models/user");
 
 mongoose.set('useNewUrlParser',true);
@@ -38,7 +38,58 @@ app.post("/drillings", function(req, res){
     var firstname = req.body.firstname;
     var lastname = req.body.lastname;
     var email = req.body.email;
-    var newUser = {firstname: firstname, lastname: lastname, email: email};
+    // left finger
+    var lgrip = req.body.lgrip;
+    var lhol = req.body.lhol;
+    var lpitchfr = req.body.lpitchfr;
+    var lpitchlr = req.body.lpitchlr;
+    var loval = req.body.loval;
+    var lmach = req.body.lmach;
+    // right finger
+    var rgrip = req.body.rgrip;
+    var rhol = req.body.rhol;
+    var rpitchfr = req.body.rpitchfr;
+    var rpitchlr = req.body.rpitchlr;
+    var roval = req.body.roval;
+    var rmach = req.body.rmach;
+    // thumb
+    var tslug = req.body.tslug;
+    var tgrip = req.body.tgrip;
+    var thol = req.body.thol;
+    var tpitchfr = req.body.tpitchfr;
+    var tpitchlr = req.body.tpitchlr;
+    var toval = req.body.toval;
+    var tmach = req.body.tmach;
+
+    var newUser = {firstname: firstname,
+        lastname: lastname, 
+        email: email,
+        left: {
+            grip: lgrip,
+            holesize: lhol,
+            pitchfr: lpitchfr,
+            pitchlr: lpitchlr,
+            oval: loval,
+            mach: lmach
+        },
+        right: {
+            grip: rgrip,
+            holesize: rhol,
+            pitchfr: rpitchfr,
+            pitchlr: rpitchlr,
+            oval: roval,
+            mach: rmach
+        },
+        thumb: {
+            slug: tslug,
+            grip: tgrip,
+            holesize: thol,
+            pitchfr: tpitchfr,
+            pitchlr: tpitchlr,
+            oval: toval,
+            mach: tmach
+        }
+    };
     User.create(newUser, function(err, newlyCreated){
         if(err){
             console.log(err);
