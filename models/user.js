@@ -5,12 +5,31 @@ var userSchema = new mongoose.Schema({
     lastname: String,
     email: String,
     date: {type: Date, default: Date.now()},
-    drill: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Drill"
-        }
-    ]
+    right: {
+        grip: Number,
+        holesize: Number,
+        pitchfr: Number,
+        pitchlr: Number,
+        oval: Number,
+        mach: Number
+    },
+    left: {
+        grip: Number,
+        holesize: Number,
+        pitchfr: Number,
+        pitchlr: Number,
+        oval: Number,
+        mach: Number
+    },
+    thumb: {
+        slug: Number,
+        grip: Number,
+        holesize: Number,
+        pitchfr: Number,
+        pitchlr: Number,
+        oval: Number,
+        mach: Number
+    }
 });
 
 module.exports = mongoose.model("User", userSchema);
