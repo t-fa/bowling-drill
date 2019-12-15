@@ -12,6 +12,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
+/*
+TO DO:
+-User log ins
+-Separate drill model from user model
+-Make form a better use experience - probably 1 finger per page
+-Edit and delete
+-UI improvements
+*/
+
 // ROUTES
 app.get("/", function(req, res){
     res.render("index");
