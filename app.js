@@ -1,4 +1,4 @@
-var express = require("express"),
+const express = require("express"),
               app = express(),
               bodyParser = require("body-parser"),
               mongoose = require("mongoose"),
@@ -20,16 +20,14 @@ TO DO:
 -User log ins
 -Separate drill model from user model
 -Make form a better use experience - probably 1 finger per page
--Delete
 -UI improvements
 -Sanitize user input
 -Better route error handling (404 page, etc)
+-Search a user
 */
 
 // ROUTES
-app.get("/", function(req, res){
-    res.render("index");
-});
+app.get("/", (req, res) => res.render("index"));
 
 // INDEX
 app.get("/drillings", function(req, res){
@@ -43,9 +41,7 @@ app.get("/drillings", function(req, res){
 });
 
 // NEW
-app.get("/drillings/new", function(req, res){
-    res.render("drillings/new");
-});
+app.get("/drillings/new", (req, res) => res.render("drillings/new"));
 
 // CREATE
 app.post("/drillings", function(req, res){
@@ -213,6 +209,4 @@ app.delete("/drillings/:id", function(req, res){
 	});
 })
 
-app.listen(8080, process.env.IP, function(){
-    console.log("Server is running");
-})
+app.listen(8080, process.env.IP, () => console.log("Server is running"));
