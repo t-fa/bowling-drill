@@ -22,8 +22,7 @@ TO DO:
 -Make form a better use experience - probably 1 finger per page
 -UI improvements
 -Sanitize user input
--Better route error handling (404 page, etc)
--Search a user
+-Search for a user
 */
 
 // ROUTES
