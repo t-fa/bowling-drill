@@ -1,11 +1,15 @@
 const express = require("express"),
               app = express(),
               bodyParser = require("body-parser"),
+              LocalStrategy = require("passport-local"),
               mongoose = require("mongoose"),
               methodOverride = require("method-override"),
+              passport = require("passport"),
+              passportLocalMongoose = require("passport-local-mongoose"),
             //   Drill = require("./models/drill"),
               User = require("./models/user");
 
+// mongoose
 mongoose.set('useNewUrlParser',true);
 mongoose.set('useFindAndModify', false);
 mongoose.connect("mongodb://localhost/bowling-drill", { useUnifiedTopology: true });
@@ -15,6 +19,13 @@ app.use(methodOverride("_method"));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
+// passport
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser);
+passport.deserializeUser(User.deserializeUser);
+
 /*
 TO DO:
 -User log ins
@@ -22,6 +33,7 @@ TO DO:
 -Make form a better use experience - probably 1 finger per page
 -UI improvements
 -Sanitize user input
+-Input validation
 -Search for a user
 */
 
@@ -217,5 +229,12 @@ app.use(function(req,res){
   res.status(500);
   res.render('500');
 });
+
+function isLoggedIn(req, res, next){
+	if(req.isAuthenticated()){
+		return next();
+	}
+	res.redirect("/login");
+}
 
 app.listen(8080, process.env.IP, () => console.log("Server is running"));
