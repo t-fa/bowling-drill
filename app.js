@@ -15,6 +15,11 @@ mongoose.set('useFindAndModify', false);
 mongoose.connect("mongodb://localhost/bowling-drill", { useUnifiedTopology: true });
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(require("express-session")({
+	secret: "We need a better secret",
+	resave: false,
+	saveUninitialized: false
+}));
 app.use(methodOverride("_method"));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
@@ -35,13 +40,48 @@ TO DO:
 -Sanitize user input
 -Input validation
 -Search for a user
+-Separate out session password/make a better password
 */
+
+
+// AUTHENTICATION ROUTES
+
+// REGISTER
+app.get("/register", (req, res) => res.render("register"));
+
+app.post("/register", function(req, res){
+	User.register(new User({username: req.body.username}), req.body.password, function(err, user){
+		if(err){
+			console.log(err);
+			return res.render("register");
+		} else {
+			passport.authenticate("local")(req, res, function(){
+				res.redirect("/secret");
+			});
+		}
+	});
+});
+
+// LOG IN
+app.get("/login", (req,res) => res.render("login"));
+
+app.post("/login", passport.authenticate("local", {
+	successRedirect: "/secret",
+	failureRedirect: "/login"
+}), function(req, res){
+});
+
+// LOG OUT
+app.get("/logout", function(req, res){
+	req.logout();
+	res.redirect("/");
+});
 
 // ROUTES
 app.get("/", (req, res) => res.render("index"));
 
 // INDEX
-app.get("/drillings", function(req, res){
+app.get("/drillings", isLoggedIn, function(req, res){
     User.find({}, function(err, allUsers){
         if(err){
             console.log(err);
@@ -52,10 +92,10 @@ app.get("/drillings", function(req, res){
 });
 
 // NEW
-app.get("/drillings/new", (req, res) => res.render("drillings/new"));
+app.get("/drillings/new", isLoggedIn, (req, res) => res.render("drillings/new"));
 
 // CREATE
-app.post("/drillings", function(req, res){
+app.post("/drillings", isLoggedIn, function(req, res){
     var firstname = req.body.firstname;
     var lastname = req.body.lastname;
     var email = req.body.email;
@@ -124,7 +164,7 @@ app.post("/drillings", function(req, res){
 
 
 // SHOW
-app.get("/drillings/:id", function(req, res){
+app.get("/drillings/:id", isLoggedIn, function(req, res){
     var id = req.params.id;
     User.findById(id, function(err, foundUser){
         if(err){
@@ -136,7 +176,7 @@ app.get("/drillings/:id", function(req, res){
 });
 
 // EDIT
-app.get("/drillings/:id/edit", function(req, res){
+app.get("/drillings/:id/edit", isLoggedIn, function(req, res){
     var id = req.params.id;
     User.findById(id, function(err, foundUser){
         if(err){
@@ -148,7 +188,7 @@ app.get("/drillings/:id/edit", function(req, res){
 });
 
 // UPDATE
-app.put("/drillings/:id", function(req, res){
+app.put("/drillings/:id", isLoggedIn, function(req, res){
     // left finger
     var lgrip = req.body.lgrip;
     var lhol = req.body.lhol;
@@ -209,7 +249,7 @@ app.put("/drillings/:id", function(req, res){
 })
 
 // DELETE
-app.delete("/drillings/:id", function(req, res){
+app.delete("/drillings/:id", isLoggedIn, function(req, res){
     User.findByIdAndRemove(req.params.id, function(err){
 		if(err){
 			console.log(err);
