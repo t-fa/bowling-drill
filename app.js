@@ -56,7 +56,7 @@ app.post("/register", function(req, res){
 			return res.render("register");
 		} else {
 			passport.authenticate("local")(req, res, function(){
-				res.redirect("/secret");
+				res.redirect("/drillings");
 			});
 		}
 	});
@@ -66,7 +66,7 @@ app.post("/register", function(req, res){
 app.get("/login", (req,res) => res.render("login"));
 
 app.post("/login", passport.authenticate("local", {
-	successRedirect: "/secret",
+	successRedirect: "/drillings",
 	failureRedirect: "/login"
 }), function(req, res){
 });
