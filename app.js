@@ -209,4 +209,14 @@ app.delete("/drillings/:id", function(req, res){
 	});
 })
 
+app.use(function(req,res){
+    res.status(404);
+    res.render('404');
+});
+
+app.use(function(req,res){
+  res.status(500);
+  res.render('500');
+});
+
 app.listen(8080, process.env.IP, () => console.log("Server is running"));
